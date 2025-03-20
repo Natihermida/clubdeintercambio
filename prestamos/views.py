@@ -5,4 +5,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    if(request.session.get("usuario_id")):
+        libros=Libro.objects.all()
+        return render(request, "index.html")
+        #redirijo a la pagina de login
+        return redirect('usuarios:login')

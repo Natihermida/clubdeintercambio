@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Detalle Libro</h3>
+<hr>
+<h4>{{ libro.titulo }}</h4>
+<p>{{ libro.descripcion }}</p>
+<img src="{{libro.imagen.url}}" alt="" width="100">
+<hr>
+<a href="{% url 'libros:index' %}">Volver</a>
+<hr>
+<!--Mostrar los prestamos-->
+<h3>Prestamos</h3>
+
+<ul>
+    {% for prestamo in prestamos %}
+    <li>{{ prestamo.prestamos_id }} - {{ prestamo.fecha_solicitud }} - {{prestamo.usuario.nombre}} {{prestamo.estado.descripcion}}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'libros:index' %}">Volver</a>
+
+
+
+{% endblock %}
+```

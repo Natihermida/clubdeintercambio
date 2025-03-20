@@ -34,7 +34,9 @@ def login(request):
             if usuario.password == password:
                 # Guardamos el ID del usuario en la sesión para "loguearlo"
                 request.session['usuario_id'] = usuario.usuario_id
-                return redirect('home')  # Redirige a la página principal u otra deseada
+                request.session["nombre"] = usuario.nombre
+                #redirigir a la index del modulo libros
+                return redirect('libros:index')  # Redirige a la página principal u otra deseada
             else:
                 error = "Email o contraseña incorrectos."
         except Usuario.DoesNotExist:
