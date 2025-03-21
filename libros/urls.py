@@ -7,6 +7,9 @@ urlpatterns = [
     path("alta_libro/", views.alta_libro, name="alta_libro"),
     path("borrar/<int:libro_id>", views.borrar, name="borrar"),
     path("ver/<int:libro_id>", views.ver, name="ver"),
+    path("editar/<int:libro_id>", views.editar, name="editar"),
+    
+    
     
     
 ]

@@ -28,10 +28,11 @@
                     <td><img src="{{libro.imagen.url}}" alt="" width="100"></td>
                     <td>
                         <!--url + carpeta + metodo-->
-
+                        {% if libro.prestamos.count == 0 %}
                         <a href="{% url 'libros:borrar' libro.libro_id%}"><i class="fa-solid fa-trash"></i></a> 
-                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="{% url 'libros:ver' libro.libro_id%}"><i class="fa-solid fa-eye"></i></a>
+                        {% endif %}
+                       <a href="{% url 'libros:ver' libro.libro_id%}"><i class="fa-solid fa-eye"></i></a>
+                       <a href="{% url 'libros:editar' libro.libro_id%}"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                 </tr>
             {% endfor %}
