@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Préstamos</h1>
+
+    <h2>📚 Libros disponibles para solicitar</h2>
+    <ul>
+        {% for libro in libros_disponibles %}
+    
+                <li>
+                    <img src="{{ libro.imagen.url }}" alt="{{ libro.titulo }}" width="100" height="150"> <!-- Mostrar la imagen -->
+                    <strong>{{ libro.titulo }}</strong><br>
+                    <p>{{ libro.descripcion }}</p> <!-- Mostrar la descripción -->
+                    <a href="{% url 'prestamos:solicitar' libro.libro_id%}">
+                        <button>Solicitar</button> <!-- Botón para solicitar el libro -->
+                    </a>
+                </li>
+    
+        {% empty %}
+            <li>No hay libros disponibles</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+

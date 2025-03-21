@@ -14,7 +14,13 @@
 
 <ul>
     {% for prestamo in prestamos %}
-    <li>{{ prestamo.prestamos_id }} - {{ prestamo.fecha_solicitud }} - {{prestamo.usuario.nombre}} {{prestamo.estado.descripcion}}</li>
+    <li>
+        <p>{{ prestamo.prestamos_id }} - {{ prestamo.fecha_solicitud }} - {{prestamo.usuario.nombre}} {{prestamo.estado.descripcion}}</p>
+        <p>
+            <a href="{% url 'prestamos:aceptar' prestamo.prestamos_id %}">Aceptar</a>
+            <a href="{% url 'prestamos:cancelar' prestamo.prestamos_id %}">Cancelar</a>
+        </p>
+    </li>
     {% endfor %}
 </ul>
 

@@ -1,6 +1,3 @@
-
-
-# Create your models here.
 from django.db import models
 from usuarios.models import Usuario
 from libros.models import Libro
@@ -23,3 +20,4 @@ class Prestamo(models.Model):
 
     def __str__(self):
         return f"Préstamo {self.prestamos_id} - {self.libro.titulo}"
+
