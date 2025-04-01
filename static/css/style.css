@@ -71,18 +71,7 @@ footer {
     white-space: nowrap;
 }
 
-/* Botones */
-.btn {
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-size: 14px;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-}
+
 
 .btn-danger {
     background-color: #d9534f;

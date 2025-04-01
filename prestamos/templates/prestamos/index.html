@@ -4,10 +4,10 @@
     <h1>Préstamos</h1>
 
     <h2>📚 Libros disponibles para solicitar</h2>
-    <ul>
+    <ul class="row">
         {% for libro in libros_disponibles %}
     
-                <li>
+                <li class="col-md-4" style="list-style-type: none; margin-bottom: 20px;">
                     <img src="{{ libro.imagen.url }}" alt="{{ libro.titulo }}" width="100" height="150"> <!-- Mostrar la imagen -->
                     <strong>{{ libro.titulo }}</strong><br>
                     <p>{{ libro.descripcion }}</p> <!-- Mostrar la descripción -->
