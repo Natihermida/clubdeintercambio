@@ -1,0 +1,345 @@
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #222;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: #444;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    position: relative;
+    width: 100%;
+}
+
+/* Tabla de libros */
+.table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: left;
+}
+
+.table img {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+
+.table .descripcion {
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Botones */
+.btn {
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+.btn-info {
+    background-color: #5bc0de;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #31b0d5;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+
+/* Formularios */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+button[type="submit"] {
+    background-color: #222;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #444;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    form {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+}
+
+/* Estilos para el login */
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    text-align: left;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.login-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    background-color: #222;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #444;
+}
+
+/* Estilos para las páginas alta_libro y ver (detalle de libro y préstamos) */
+
+/* Detalles del libro */
+h3 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 20px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Imagen del libro */
+img {
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* Lista de préstamos */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+ul li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+ul li p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Enlaces de acción (aceptar, cancelar) */
+ul li a {
+    background-color: #222;
+    color: white;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul li a:hover {
+    background-color: #444;
+}
+
+/* Volver al listado de libros */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: #444;
+}
+
+/* Formularios de aceptación/cancelación de préstamos */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+form button {
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #444;
+}
+/* Estilo personalizado para los botones */
+.custom-btn {
+    padding: 12px 20px;  /* Aumenta el tamaño del padding */
+    font-size: 16px;      /* Aumenta el tamaño de la fuente */
+    line-height: 1.5;     /* Ajusta el espacio entre las líneas */
+    height: auto;         /* Asegura que el botón tenga el tamaño adecuado según el texto */
+    display: flex;        /* Alinea los iconos y el texto correctamente */
+    align-items: center;  /* Centra el contenido verticalmente */
+}
+
+.custom-btn i {
+    margin-right: 8px;    /* Da un pequeño espacio entre el icono y el texto */
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h3, h4 {
+        text-align: center;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    ul li {
+        padding: 10px;
+    }
+
+    a {
+        margin-top: 15px;
+        padding: 8px 15px;
+    }
+}

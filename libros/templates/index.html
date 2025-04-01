@@ -1,42 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!--cargar plantilla base.html-->
-    {% extends 'base.html' %}
-    {% block content %}
-    <h3>Listados de libros</h3>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h3>Listado de libros</h3>
     <hr>
-    <table>
-        <thead>
-            <tr>
-                <th>Titulo</th>
-                <th>Descripción</th>
-                <th>Imagen</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for libro in libros %}
-                <tr>
-                    <td>{{ libro.titulo }}</td>
-                    <td>{{ libro.descripcion }}</td>
-                    <td><img src="{{libro.imagen.url}}" alt="" width="100"></td>
-                    <td>
-                        <!--url + carpeta + metodo-->
-                        {% if libro.prestamos.count == 0 %}
-                        <a href="{% url 'libros:borrar' libro.libro_id%}"><i class="fa-solid fa-trash"></i></a> 
-                        {% endif %}
-                       <a href="{% url 'libros:ver' libro.libro_id%}"><i class="fa-solid fa-eye"></i></a>
-                       <a href="{% url 'libros:editar' libro.libro_id%}"><i class="fa-solid fa-pen-to-square"></i></a>
-                    </td>
-                </tr>
-            {% endfor %}
-    </table>
+    <div class="row">
+        {% for libro in libros %}
+            <div class="col-md-4">
+                <div class="card" style="width: 100%; margin-bottom: 20px;">
+                    <img src="{{ libro.imagen.url }}" alt="Imagen de {{ libro.titulo }}" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ libro.titulo }}</h5>
+                        <p class="card-text descripcion">{{ libro.descripcion }}</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                {% if libro.prestamos.count == 0 %}
+                                    <a href="{% url 'libros:borrar' libro.libro_id %}" class="btn btn-danger btn-lg custom-btn">
+                                        <i class="fa-solid fa-trash"></i> Borrar
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="{% url 'libros:ver' libro.libro_id %}" class="btn btn-info btn-lg custom-btn">
+                                    <i class="fa-solid fa-eye"></i> Ver
+                                </a>
+                                <a href="{% url 'libros:editar' libro.libro_id %}" class="btn btn-warning btn-lg custom-btn">
+                                    <i class="fa-solid fa-pen-to-square"></i> Editar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
-</body>
-</html>
+

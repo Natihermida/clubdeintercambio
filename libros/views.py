@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import Libro
 from .forms import LibroForm
 from prestamos.models import Prestamo, Estado
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 
 
 def index(request):
@@ -12,6 +14,19 @@ def index(request):
     else:
         #redirijo a la pagina de login
         return redirect('usuarios:login')
+    
+def login_view(request):
+    if request.method == "POST":
+        email = request.POST["email"]
+        password = request.POST["password"]
+        user = authenticate(request, username=email, password=password)  
+        if user is not None:
+            login(request, user)
+            return redirect("libros:index")  
+        else:
+            return render(request, "usuarios/login.html", {"error": "Credenciales incorrectas"})
+    
+    return render(request, "usuarios/login.html")    
 
 def alta_libro(request):
     if request.method == 'POST':

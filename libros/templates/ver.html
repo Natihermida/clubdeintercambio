@@ -1,32 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h3>Detalle Libro</h3>
-<hr>
-<h4>{{ libro.titulo }}</h4>
-<p>{{ libro.descripcion }}</p>
-<img src="{{libro.imagen.url}}" alt="" width="100">
-<hr>
-<a href="{% url 'libros:index' %}">Volver</a>
-<hr>
-<!--Mostrar los prestamos-->
-<h3>Prestamos</h3>
-
-<ul>
-    {% for prestamo in prestamos %}
-    <li>
-        <p>{{ prestamo.prestamos_id }} - {{ prestamo.fecha_solicitud }} - {{prestamo.usuario.nombre}} {{prestamo.estado.descripcion}}</p>
-        <p>
-            <a href="{% url 'prestamos:aceptar' prestamo.prestamos_id %}">Aceptar</a>
-            <a href="{% url 'prestamos:cancelar' prestamo.prestamos_id %}">Cancelar</a>
-        </p>
-    </li>
-    {% endfor %}
-</ul>
-
-<a href="{% url 'libros:index' %}">Volver</a>
-
-
-
+    <h3>Detalle del Libro</h3>
+    <hr>
+    <div class="card mb-4" style="width: 100%; max-width: 600px; margin: auto;">
+        <img src="{{ libro.imagen.url }}" alt="Imagen de {{ libro.titulo }}" class="card-img-top" style="height: 250px; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title">{{ libro.titulo }}</h5>
+            <p class="card-text">{{ libro.descripcion }}</p>
+            <a href="{% url 'libros:index' %}" class="btn btn-secondary">Volver al listado</a>
+        </div>
+    </div>
+    <hr>
+    
+    <!-- Mostrar los préstamos -->
+    <h3>Préstamos</h3>
+    {% if prestamos %}
+        <div class="list-group">
+            {% for prestamo in prestamos %}
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <p><strong>ID:</strong> {{ prestamo.prestamos_id }}</p>
+                        <p><strong>Fecha de Solicitud:</strong> {{ prestamo.fecha_solicitud }}</p>
+                        <p><strong>Usuario:</strong> {{ prestamo.usuario.nombre }}</p>
+                        <p><strong>Estado:</strong> {{ prestamo.estado.descripcion }}</p>
+                    </div>
+                    <div>
+                        <a href="{% url 'prestamos:aceptar' prestamo.prestamos_id %}" class="btn btn-info btn-sm">
+                            <i class="fa-solid fa-check"></i> Aceptar
+                        </a>
+                        <a href="{% url 'prestamos:cancelar' prestamo.prestamos_id %}" class="btn btn-danger btn-sm">
+                            <i class="fa-solid fa-times"></i> Cancelar
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No hay préstamos para este libro.</p>
+    {% endif %}
+    
 {% endblock %}
-```
