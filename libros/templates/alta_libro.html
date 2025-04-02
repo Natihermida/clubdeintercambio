@@ -1,21 +1,20 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    {% block content %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta de Libro</title>
-</head>
-<body>
-    <h1>Alta de Libro</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }} <!-- Mostrar el formulario de forma sencilla -->
-        <button type="submit">Guardar</button>
-    </form>
-</body>
-</html>
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-90">
+    <div class="card p-6 shadow-lg mt-4" style="width: 400px;">
+        <h1 class="text-center">Alta Libro</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }} <!-- Mostrar el formulario de forma sencilla -->
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Guardar</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
 
