@@ -311,7 +311,9 @@ form button:hover {
 .custom-btn i {
     margin-right: 8px;    /* Da un pequeño espacio entre el icono y el texto */
 }
-
+.descripcion_libro{
+    height: 300px;
+}
 
 /* Responsividad */
 @media (max-width: 768px) {
@@ -331,4 +333,8 @@ form button:hover {
         margin-top: 15px;
         padding: 8px 15px;
     }
+    .descripcion_libro{
+        height: 400px;
+    }
+    
 }
