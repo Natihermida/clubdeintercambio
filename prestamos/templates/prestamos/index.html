@@ -6,21 +6,21 @@
     <h2>📚 Libros disponibles para solicitar</h2>
     <ul class="row">
         {% for libro in libros_disponibles %}
-    
-                <li class="col-md-4" style="list-style-type: none; margin-bottom: 20px;">
-                    <img src="{{ libro.imagen.url }}" alt="{{ libro.titulo }}" width="100" height="150"> <!-- Mostrar la imagen -->
-                    <strong>{{ libro.titulo }}</strong><br>
-                    <p>{{ libro.descripcion }}</p> <!-- Mostrar la descripción -->
-                    <a href="{% url 'prestamos:solicitar' libro.libro_id%}">
-                        <button>Solicitar</button> <!-- Botón para solicitar el libro -->
-                    </a>
-                </li>
-    
+            <li class="col-md-4" style="list-style-type: none; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center;">
+                <img src="{{ libro.imagen.url }}" alt="{{ libro.titulo }}" width="100" height="150"> <!-- Mostrar la imagen -->
+                <strong>{{ libro.titulo }}</strong><br>
+                <p>{{ libro.descripcion }}</p> <!-- Mostrar la descripción -->
+                <a href="{% url 'prestamos:solicitar' libro.libro_id%}">
+                    <button>Solicitar</button> <!-- Botón para solicitar el libro -->
+                </a>
+            </li>
         {% empty %}
             <li>No hay libros disponibles</li>
         {% endfor %}
     </ul>
 {% endblock %}
+
+
 
 
 

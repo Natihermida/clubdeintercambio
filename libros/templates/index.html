@@ -6,13 +6,16 @@
     <hr>
     <div class="row">
         {% for libro in libros %}
-            <div class="col-md-4">
-                <div class="card" style="width: 100%; margin-bottom: 20px;">
+        <div class="col-md-4 d-flex">
+            <div class="card d-flex flex-column h-100" style="width: 100%; margin-bottom: 20px;">
+
                     <img src="{{ libro.imagen.url }}" alt="Imagen de {{ libro.titulo }}" class="card-img-top" style="height: 250px; object-fit: cover;">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column justify-content-between flex-grow-1">
+
                         <h5 class="card-title">{{ libro.titulo }}</h5>
                         <p class="card-text descripcion">{{ libro.descripcion }}</p>
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between mt-auto">
+
                             <div>
                                 {% if libro.prestamos.count == 0 %}
                                     <a href="{% url 'libros:borrar' libro.libro_id %}" class="btn btn-danger btn-lg custom-btn">
